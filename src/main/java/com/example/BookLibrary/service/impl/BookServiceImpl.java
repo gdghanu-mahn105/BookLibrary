@@ -33,6 +33,11 @@ public class BookServiceImpl implements BookService {
     public List<Book> getBook(FilterParamBook param) {
         Predicate<Book> predicate= books-> true;
 
+        if(param.getId()!=null && param.getIdMode()==null) {
+            predicate=predicate.and(book-> {
+                return book.getId() == param.getId();
+            });
+        }
         if(param.getIdMode()!=null){
             if (param.getIdMode() == EQUAL_MODE) {
                 predicate=predicate.and(book->book.getId()==param.getId());
