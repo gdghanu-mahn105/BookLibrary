@@ -52,8 +52,9 @@ private Long id;
         return ResponseEntity.ok(bookService.CreateBook(book));
     };
 
-    @PatchMapping
-    public ResponseEntity<?> updateBook(@RequestBody Book book) {
+    @PatchMapping("/{id}")
+    public ResponseEntity<?> updateBook(@PathVariable("id") long id, @RequestBody Book book) {
+        book.setId(id);
         return ResponseEntity.ok(bookService.UpdateBook(book));
     }
 
