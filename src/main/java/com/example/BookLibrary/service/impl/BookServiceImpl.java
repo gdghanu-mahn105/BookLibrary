@@ -50,6 +50,12 @@ public class BookServiceImpl implements BookService {
         return books.stream().filter(predicate).collect(Collectors.toList());
 
     }
+    @Override
+    public List<Book> getBook(Long id) {
+        Predicate<Book> predicate= book-> book.getId()==id;
+        return books.stream().filter(predicate).collect(Collectors.toList());
+    };
+
 
     @Override
     public Integer CreateBook(Book book) {

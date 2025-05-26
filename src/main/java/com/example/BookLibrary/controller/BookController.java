@@ -34,6 +34,18 @@ private Long id;
         filterParamBook.setPrice(price);
         return ResponseEntity.ok( bookService.getBook(filterParamBook));
     };
+//    @GetMapping("/{id}")
+//    public ResponseEntity<?> getBookById(@PathVariable("id") Long id) {
+//        FilterParamBook filterParamBook = new FilterParamBook();
+//        filterParamBook.setId(id);
+//        filterParamBook.setIdMode(0); // mode 0 là so sánh bằng id
+//
+//        return ResponseEntity.ok(bookService.getBook(filterParamBook));
+//    }
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getBook(@PathVariable("id")Long id) {
+        return ResponseEntity.ok(bookService.getBook(id));
+    }
 
     @PostMapping
     public ResponseEntity<?> createBook(@RequestBody Book book) {

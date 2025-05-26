@@ -7,6 +7,9 @@ import java.util.List;
 
 public interface BookService {
     List<Book> getBook(FilterParamBook filterParamBook);
+
+    List<Book> getBook(Long id);
+
     Integer CreateBook(Book book);
     Integer UpdateBook(Book book);
     Long deleteBook(Long id);
