@@ -1,6 +1,6 @@
 package com.example.BookLibrary.service;
 
-import com.example.BookLibrary.controller.Book;
+import com.example.BookLibrary.entity.Book;
 import com.example.BookLibrary.dto.FilterParamBook;
 
 import java.util.List;

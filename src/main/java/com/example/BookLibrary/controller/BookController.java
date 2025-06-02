@@ -1,6 +1,7 @@
 package com.example.BookLibrary.controller;
 
 import com.example.BookLibrary.dto.FilterParamBook;
+import com.example.BookLibrary.entity.Book;
 import com.example.BookLibrary.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class BookController {
     private final BookService bookService;
-/*
-private Long id;
-    private String title;
-    private String author;
-    private Double price;
-    private LocalDate publishedDate;
-    private Integer IdMode;
- */
+
     @GetMapping
     public ResponseEntity<?> getBook(
             @RequestParam(value = "id", required = false) Long id,
