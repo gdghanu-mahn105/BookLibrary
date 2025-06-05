@@ -1,5 +1,6 @@
 package com.example.BookLibrary.service.impl;
 
+import com.example.BookLibrary.core.exception.ResourceNotFoundException;
 import com.example.BookLibrary.entity.Book;
 import com.example.BookLibrary.dto.FilterParamBook;
 import com.example.BookLibrary.repository.BookRepository;
@@ -40,11 +41,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> getBook(Long id) {
-        Predicate<Book> predicate= book-> book.getId()==id;
-        return bookRepository.findAll().stream().filter(predicate).collect(Collectors.toList());
+    public Book getBookId(Long id) {
+//        Predicate<Book> predicate= book-> book.getId()==id;
+        return bookRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Book not found"));
     };
-
 
     @Override
     public Integer CreateBook(Book book) {

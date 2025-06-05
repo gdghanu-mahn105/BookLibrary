@@ -3,6 +3,7 @@ package com.example.BookLibrary.controller;
 import com.example.BookLibrary.dto.FilterParamBook;
 import com.example.BookLibrary.entity.Book;
 import com.example.BookLibrary.service.BookService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,11 +39,11 @@ public class BookController {
 //    }
     @GetMapping("/{id}")
     public ResponseEntity<?> getBook(@PathVariable("id")Long id) {
-        return ResponseEntity.ok(bookService.getBook(id));
+        return ResponseEntity.ok(bookService.getBookId(id));
     }
 
     @PostMapping
-    public ResponseEntity<?> createBook(@RequestBody Book book) {
+    public ResponseEntity<?> createBook(@RequestBody @Valid Book book) {
         return ResponseEntity.ok(bookService.CreateBook(book));
     };
 
