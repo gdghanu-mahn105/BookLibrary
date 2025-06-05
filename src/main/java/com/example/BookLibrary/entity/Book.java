@@ -21,11 +21,13 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @NotBlank(message = "Title can not be blank")
     private String title;
+
     @NotBlank(message = "Author can not be blank")
     private String author;
-    
+
     @Min(message = "Price must be greater than 0", value = 1)
     private double price;
     private LocalDate publishedDate;

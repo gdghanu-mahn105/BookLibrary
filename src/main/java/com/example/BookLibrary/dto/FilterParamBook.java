@@ -15,14 +15,8 @@ import java.time.LocalDate;
 @Setter
 public class FilterParamBook {
     private Long id;
-
-    @NotBlank (message = "Title can not be blank")
     private String title;
-
-    @NotBlank(message = "Author can not be blank")
     private String author;
-
-    @Size(min = 1,message = "Price must be greater than 0")
     private Double price;
     private LocalDate publishedDate;
     private Integer IdMode;
